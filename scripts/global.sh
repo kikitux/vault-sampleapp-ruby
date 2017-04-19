@@ -2,11 +2,11 @@
 
 echo "running global provisioning"
 
-PACKAGES="jq wget ruby vim"
+PACKAGES="jq wget ruby vim unzip"
 which ${PACKAGES} &>/dev/null || {
   export DEBIAN_FRONTEND=noninteractive
   apt-get update
-  apt-get install -y ${PACKAGES}
+  apt-get install -y --no-install-recommends ${PACKAGES}
 }
 mkdir -p /vagrant/files
 pushd /vagrant/files

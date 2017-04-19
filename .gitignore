@@ -1,4 +1,5 @@
 .vagrant/
+apt/
 files/
 vault-server.log
 vault-token

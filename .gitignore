@@ -1,1 +1,4 @@
 .vagrant/
+files/
+vault-server.log
+vault-token

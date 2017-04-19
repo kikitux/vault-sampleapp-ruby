@@ -1,5 +1,8 @@
 # vault-sampleapp-ruby
 
+
+![build](http://nuc.kikitux.net:8081/app/rest/builds/buildType:(id:VaultSampleappRuby_Build)/statusIcon)
+
 # TODO:
 
 ## Version 0.0.3

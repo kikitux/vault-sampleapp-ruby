@@ -17,5 +17,3 @@ pushd /usr/local/bin
 unzip -n /vagrant/files/vault_0.7.0_linux_amd64.zip
 hash -r
 vault -version
-
-gem install rubyzip

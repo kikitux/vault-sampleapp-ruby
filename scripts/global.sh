@@ -2,9 +2,9 @@
 
 echo "running global provisioning"
 
-which wget ruby &>/dev/null || {
+which jq wget ruby &>/dev/null || {
   apt-get update
-  apt-get install -y wget ruby
+  apt-get install -y wget ruby jq
 }
 mkdir -p /vagrant/files
 pushd /vagrant/files

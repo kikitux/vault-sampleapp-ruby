@@ -1,5 +1,6 @@
 .vagrant/
-apt/
+archives/
 files/
-vault-server.log
+vault-*.log
+consul-*.log
 vault-token

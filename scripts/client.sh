@@ -3,6 +3,12 @@
 echo "running client provisioning"
 
 # Make vault client tools available on the client and run a simple test by printing the secret/hello secret to the CLI
+
+killall consul &>/dev/null
+nohup consul agent -data-dir=/usr/local/consul -join=192.168.56.11 -bind=192.168.56.12 -client=127.0.0.1 &>/vagrant/consul-${HOSTNAME}.log &
+sleep 2
+consul members
+
 gem install vault
 cp /vagrant/vault-token ~/.vault-token 
 echo "vault cli"

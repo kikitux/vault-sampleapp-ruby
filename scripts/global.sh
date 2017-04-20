@@ -2,12 +2,15 @@
 
 echo "running global provisioning"
 
+# Install required packages on client and server
 PACKAGES="jq wget ruby vim unzip"
 which ${PACKAGES} &>/dev/null || {
   export DEBIAN_FRONTEND=noninteractive
   apt-get update
   apt-get install -y --no-install-recommends ${PACKAGES}
 }
+
+# Provision vault
 mkdir -p /vagrant/files
 pushd /vagrant/files
 [ -f vault_0.7.0_linux_amd64.zip ] || wget -k https://releases.hashicorp.com/vault/0.7.0/vault_0.7.0_linux_amd64.zip

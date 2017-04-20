@@ -2,6 +2,8 @@
 
 echo "running server provisioning"
 
+# Run a development version of vault and test writing and reading a sample (secret/hello) secret 
+
 killall vault &>/dev/null
 nohup vault server -dev -dev-listen-address=192.168.56.11:8200 &>/vagrant/vault-${HOSTNAME}.log &
 sleep 2

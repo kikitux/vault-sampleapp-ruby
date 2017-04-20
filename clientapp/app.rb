@@ -2,6 +2,11 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Sample app 
+# Uses the vault client tools to:
+# - connect to vault
+# - read and print the value of an existing secret (secret/hello)
+
 require "vault"
 
 vaulttokenfile = File.read '/vagrant/vault-token'

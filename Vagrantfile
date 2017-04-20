@@ -1,6 +1,15 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Vagrantfile                                            
+
+# Instruct Vagrant to provision both a server and a client, which can communicate with eachother, in order to exchange secrets.
+
+# Referenced scripts:
+# scripts/server.sh - server-specific provisioning
+# scripts/client.sh - client-specific provisioning
+# scripts/global.sh - global configuration
+
 Vagrant.configure("2") do |config|
   config.vm.box = "cbednarski/ubuntu-1604"
   config.vm.synced_folder "archives", "/var/cache/apt/archives", create: true,

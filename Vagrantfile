@@ -6,16 +6,18 @@
 # Instruct Vagrant to provision both a server and a client, which can communicate with eachother, in order to exchange secrets.
 
 # Referenced scripts:
+# scripts/global.sh - global configuration
 # scripts/server.sh - server-specific provisioning
 # scripts/client.sh - client-specific provisioning
-# scripts/global.sh - global configuration
 
 Vagrant.configure("2") do |config|
   config.vm.box = "cbednarski/ubuntu-1604"
   config.vm.synced_folder "archives", "/var/cache/apt/archives", create: true,
     mount_options: ["dmode=777,fmode=646"]
   config.vm.provision "shell", path: "scripts/global.sh"
-  config.vm.provider "virtualbox"
+  config.vm.provider "virtualbox" do |v|
+    v.linked_clone = true if Gem::Version.new(Vagrant::VERSION) >= Gem::Version.new('1.8.0')
+  end
   config.vm.define "server" do |server|
     server.vm.provision "shell", path: "scripts/server.sh"
     server.vm.hostname = "server"

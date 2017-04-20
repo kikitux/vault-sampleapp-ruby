@@ -2,6 +2,7 @@
 
 echo "running client provisioning"
 
+# Make vault client tools available on the client and run a simple test by printing the secret/hello secret to the CLI
 gem install vault
 cp /vagrant/vault-token ~/.vault-token 
 echo "vault cli"

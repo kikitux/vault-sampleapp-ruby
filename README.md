@@ -6,9 +6,21 @@
 
 Sample app that shows vault and consul working toegether.
 
+On startup 2 vm are created, `server` and `client`
+
+Server provides the following services:
+- Consul
+- Vault
+
+## Consul
 Consul ui is enabled and port forward are set for the host.
 
 on `http://localhost:8501/ui` for server and `http://localhost:8502/ui` for client
+
+A check can be found on [consul/vault.json](consul/vault.json) that register vault as an external service on consul.
+
+This allows the ruby app to reach vault on `vaul.service.consul` dns, without requiring hardcoded ip.
+
 
 # TODO:
 

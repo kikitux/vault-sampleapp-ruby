@@ -25,14 +25,20 @@ VAULT_ADDR='http://192.168.56.11:8200' vault write secret/mysqluser value=${THEP
 [ -f /usr/local/mysql.done ] || {
   export DEBIAN_FRONTEND=noninteractive
   apt-get install -y --no-install-recommends mysql-server
+  sed -i -e 's/bind-address=*.*/bind-address=0.0.0.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
+  service mysql restart
   mysql -u root << EOF
 CREATE DATABASE mydb;
-CREATE USER 'user'@'localhost' IDENTIFIED BY '${THEPASS}';
-GRANT ALL PRIVILEGES ON mydb.* TO 'user'@'localhost';
+GRANT ALL PRIVILEGES ON mydb.* TO 'root'@'localhost';
+CREATE USER 'user'@'%' IDENTIFIED BY '${THEPASS}';
+GRANT ALL PRIVILEGES ON mydb.* TO 'user'@'%';
+USE mydb;
+CREATE TABLE mytable (name VARCHAR(20));
 FLUSH PRIVILEGES;
 exit
 EOF
   touch /usr/local/mysql.done 
 }
 
-mysqlshow mydb -u user -p${THEPASS}
+mysqlshow mydb
+mysqlshow -h 192.168.56.11 -uuser -p${THEPASS} mydb -P 3306

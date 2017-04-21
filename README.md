@@ -2,10 +2,15 @@
 
 ![build](http://nuc.kikitux.net:8081/app/rest/builds/buildType:(id:VaultSampleappRuby_Build)/statusIcon)
 
-# TODO:
+# Description
 
-## Version 0.0.4
-- [ ] Add Consul (service discovery)
+Sample app that shows vault and consul working toegether.
+
+Consul ui is enabled and port forward are set for the host.
+
+on `http://localhost:8501/ui` for server and `http://localhost:8502/ui` for client
+
+# TODO:
 
 ## Version 0.0.5
 - [ ] Add MySQL 
@@ -30,3 +35,7 @@
 - [x] Document server script
 - [x] Document client script
 - [x] Document sample app
+
+## Version 0.0.4
+- [x] Add Consul (service discovery)
+- [x] Add Consul ui

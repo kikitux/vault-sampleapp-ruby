@@ -1,0 +1,11 @@
+{
+    "service": {
+        "name": "mysql",
+        "port": 3306,
+        "tags": ["mydb"],
+        "check": {
+            "script": "mysqlshow mydb",
+            "interval": "10s"
+        }
+    }
+}

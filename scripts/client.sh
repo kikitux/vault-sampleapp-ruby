@@ -7,7 +7,7 @@ echo "running client provisioning"
 killall consul &>/dev/null
 nohup consul agent -data-dir=/usr/local/consul -join=192.168.56.11 -bind=192.168.56.12 -client=127.0.0.1 &>/vagrant/consul-${HOSTNAME}.log &
 sleep 2
-consul members
+
 
 gem install vault
 cp /vagrant/vault-token ~/.vault-token 
@@ -15,3 +15,6 @@ echo "vault cli"
 VAULT_ADDR='http://192.168.56.11:8200' vault read -format=json secret/hello
 echo "sample app"
 ruby /vagrant/clientapp/app.rb
+
+host server.node.consul.
+host client.node.consul.

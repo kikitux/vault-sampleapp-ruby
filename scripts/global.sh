@@ -3,12 +3,21 @@
 echo "running global provisioning"
 
 # Install required packages on client and server
-PACKAGES="jq wget ruby vim unzip"
+PACKAGES="jq wget ruby vim unzip dnsmasq"
 which ${PACKAGES} &>/dev/null || {
   export DEBIAN_FRONTEND=noninteractive
   apt-get update
   apt-get install -y --no-install-recommends ${PACKAGES}
 }
+
+#dnsmasq
+grep consul /etc/dnsmasq.conf && (service dnsmasq restart) || (echo 'server=/consul/127.0.0.1#8600' | tee -a /etc/dnsmasq.conf && service dnsmasq restart)
+
+cat > /etc/resolv.conf <<EOF
+search consul
+nameserver 127.0.0.1
+nameserver 10.0.2.3
+EOF
 
 # Provision vault
 mkdir -p /vagrant/files

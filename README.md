@@ -5,7 +5,8 @@
 # TODO:
 
 ## Version 0.0.4
-- [ ] Add Consul (service discovery)
+- [x] Add Consul (service discovery)
+- [ ] Add Consul ui
 
 ## Version 0.0.5
 - [ ] Add MySQL 

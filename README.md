@@ -15,7 +15,7 @@ Server provides the following services:
 ## Consul
 Consul ui is enabled and port forward are set for the host.
 
-on `http://localhost:8501/ui` for server and `http://localhost:8502/ui` for client
+on `http://192.168.56.11:8500/ui` for server and `http://192.168.56.11:8500/ui` for client
 
 A check can be found on [consul/vault.json](consul/vault.json) that register vault as an external service on consul.
 

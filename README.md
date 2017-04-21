@@ -12,10 +12,6 @@ on `http://localhost:8501/ui` for server and `http://localhost:8502/ui` for clie
 
 # TODO:
 
-## Version 0.0.4
-- [x] Add Consul (service discovery)
-- [ ] Add Consul ui
-
 ## Version 0.0.5
 - [ ] Add MySQL 
 - [ ] Register MySQL with Consul
@@ -39,3 +35,7 @@ on `http://localhost:8501/ui` for server and `http://localhost:8502/ui` for clie
 - [x] Document server script
 - [x] Document client script
 - [x] Document sample app
+
+## Version 0.0.4
+- [x] Add Consul (service discovery)
+- [x] Add Consul ui

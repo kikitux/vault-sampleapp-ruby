@@ -24,9 +24,7 @@ This allows the ruby app to reach vault on `vaul.service.consul` dns, without re
 
 # TODO:
 
-## Version 0.0.5
-- [ ] Add MySQL 
-- [ ] Register MySQL with Consul
+
 
 ## Version 0.0.6
 - [ ] Create database using user and secret password
@@ -51,3 +49,7 @@ This allows the ruby app to reach vault on `vaul.service.consul` dns, without re
 ## Version 0.0.4
 - [x] Add Consul (service discovery)
 - [x] Add Consul ui
+
+## Version 0.0.5
+- [x] Add MySQL 
+- [x] Register MySQL with Consul

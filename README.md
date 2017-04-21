@@ -21,13 +21,10 @@ A check can be found on [consul/vault.json](consul/vault.json) that register vau
 
 This allows the ruby app to reach vault on `vaul.service.consul` dns, without requiring hardcoded ip.
 
-
 # TODO:
 
-
-
-## Version 0.0.6
-- [ ] Create database using user and secret password
+## Version 0.0.7
+- [ ] Document scripts in-line
 
 # Changelog:
 
@@ -53,3 +50,6 @@ This allows the ruby app to reach vault on `vaul.service.consul` dns, without re
 ## Version 0.0.5
 - [x] Add MySQL 
 - [x] Register MySQL with Consul
+
+## Version 0.0.6
+- [x] Create database using user and secret password

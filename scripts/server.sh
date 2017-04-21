@@ -5,7 +5,7 @@ echo "running server provisioning"
 # Run a development version of vault and test writing and reading a sample (secret/hello) secret 
 
 killall consul &>/dev/null
-nohup consul agent -dev -data-dir=/usr/local/consul -bind=192.168.56.11 -client=0.0.0.0 -ui &>/vagrant/consul-${HOSTNAME}.log &
+nohup consul agent -dev -data-dir=/usr/local/consul -bind=192.168.56.11 -client=0.0.0.0 -ui -config-dir=/vagrant/consul &>/vagrant/consul-${HOSTNAME}.log &
 sleep 3
 consul members
 

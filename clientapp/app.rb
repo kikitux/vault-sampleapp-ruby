@@ -18,10 +18,10 @@ client = Vault::Client.new(
     token: vaulttoken
 )
 
-mysecret = client.get("/v1/secret/mysqluser")
+mysecret = client.logical.read("secret/mysqluser")
 
 begin
-    con = Mysql.new 'mydb.mysql.service.consul', 'user', mysecret[:data][:value], 'mydb'
+    con = Mysql.new 'mydb.mysql.service.consul', 'user', mysecret.data[:value], 'mydb'
     puts con.get_server_info
     rs = con.query 'SELECT count(*) FROM mytable'
     puts rs.fetch_row    

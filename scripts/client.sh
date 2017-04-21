@@ -6,6 +6,7 @@ echo "running client provisioning"
 
 killall consul &>/dev/null
 nohup consul agent -data-dir=/usr/local/consul -join=192.168.56.11 -bind=192.168.56.12 -client=0.0.0.0 -ui &>/vagrant/consul-${HOSTNAME}.log &
+service dnsmasq force-reload
 
 gem install vault
 cp /vagrant/vault-token ~/.vault-token 

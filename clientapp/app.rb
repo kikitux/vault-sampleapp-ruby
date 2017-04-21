@@ -13,7 +13,7 @@ vaulttokenfile = File.read '/vagrant/vault-token'
 vaulttoken = vaulttokenfile.tr("\n","")
 
 client = Vault::Client.new(
-    address: "http://192.168.56.11:8200",
+    address: "http://vault.service.consul:8200",
     token: vaulttoken
 )
 

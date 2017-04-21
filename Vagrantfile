@@ -26,6 +26,7 @@ Vagrant.configure("2") do |config|
   end
   config.vm.define "client" do |client|
     client.vm.provision "shell", path: "scripts/client.sh"
+    client.vm.provision "shell", path: "scripts/client-test.sh"
     client.vm.hostname = "client"
     client.vm.network "private_network", ip: "192.168.56.12"
     client.vm.network "forwarded_port", guest: 8500, host: 8502

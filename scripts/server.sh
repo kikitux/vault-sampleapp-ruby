@@ -8,7 +8,7 @@ mkdir -p /vagrant/logs
 
 #consul
 killall consul &>/dev/null
-nohup consul agent -dev -data-dir=/usr/local/consul -bind=192.168.56.11 -client=0.0.0.0 -ui -config-dir=/vagrant/conf &>/vagrant/logs/consul-${HOSTNAME}.log &
+nohup consul agent -dev -enable-script-checks -data-dir=/usr/local/consul -bind=192.168.56.11 -client=0.0.0.0 -ui -config-dir=/vagrant/conf &>/vagrant/logs/consul-${HOSTNAME}.log &
 sleep 3
 consul members
 
@@ -17,13 +17,15 @@ killall vault &>/dev/null
 nohup vault server -dev -dev-listen-address=192.168.56.11:8200 &>/vagrant/logs/vault-${HOSTNAME}.log &
 sleep 2
 cp ~/.vault-token /vagrant/vault-token
-VAULT_ADDR='http://192.168.56.11:8200' vault write secret/hello value=world
-VAULT_ADDR='http://192.168.56.11:8200' vault read secret/hello
+VAULT_ADDR='http://192.168.56.11:8200' vault secrets enable -version=1 kv
+
+VAULT_ADDR='http://192.168.56.11:8200' vault kv put kv/hello value=world
+VAULT_ADDR='http://192.168.56.11:8200' vault kv get kv/hello
 
 #mysql
 THEPASS=mysqlpassword
 #create a password in vault
-VAULT_ADDR='http://192.168.56.11:8200' vault write secret/mysqluser value=${THEPASS}
+VAULT_ADDR='http://192.168.56.11:8200' vault kv put kv/mysqluser value=${THEPASS}
 [ -f /usr/local/mysql.done ] || {
   export DEBIAN_FRONTEND=noninteractive
   apt-get install -y --no-install-recommends mysql-server

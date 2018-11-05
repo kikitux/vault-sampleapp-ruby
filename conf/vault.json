@@ -1,11 +1,9 @@
 {
-    "service": {
-        "name": "vault",
-        "port": 8200,
-        "tags": ["dev"],
-        "check": {
-            "script": "VAULT_ADDR='http://192.168.56.11:8200' vault read secret/hello",
-            "interval": "10s"
-        }
-    }
+  "service": {
+    "name": "vault",
+    "port": 8200,
+    "tags": [
+      "dev"
+    ]
+  }
 }

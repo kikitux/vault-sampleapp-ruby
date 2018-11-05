@@ -8,7 +8,7 @@
 # - read and print the value of an existing secret (secret/hello)
 
 require "vault"
-require 'mysql'
+require "mysql"
 
 vaulttokenfile = File.read '/vagrant/vault-token'
 vaulttoken = vaulttokenfile.tr("\n","")
@@ -18,7 +18,7 @@ client = Vault::Client.new(
     token: vaulttoken
 )
 
-mysecret = client.logical.read("secret/mysqluser")
+mysecret = client.logical.read("kv/mysqluser")
 
 begin
     con = Mysql.new 'mydb.mysql.service.consul', 'user', mysecret.data[:value], 'mydb'

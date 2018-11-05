@@ -1,8 +1,6 @@
 # vault-sampleapp-ruby
 
-![build](http://nuc.kikitux.net:8081/app/rest/builds/buildType:(id:VaultSampleappRuby_Build)/statusIcon)
-
-# Description
+## Description
 
 Sample app that shows vault and consul working toegether.
 
@@ -17,14 +15,11 @@ Consul ui is enabled and port forward are set for the host.
 
 on `http://192.168.56.11:8500/ui` for server and `http://192.168.56.12:8500/ui` for client
 
-A check can be found on [consul/vault.json](consul/vault.json) that register vault as an external service on consul.
+A service definition can be found on [conf/vault.json](conf/vault.json) that register vault as an external service on consul.
 
 This allows the ruby app to reach vault on `vaul.service.consul` dns, without requiring hardcoded ip.
 
 # TODO:
-
-## Version 0.0.7
-- [ ] Document scripts in-line
 
 # Changelog:
 

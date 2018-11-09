@@ -49,3 +49,6 @@ This allows the ruby app to reach vault on `vaul.service.consul` dns, without re
 ## Version 0.0.6
 - [x] Create database using user and secret password
 - [x] Update application to use secrets from vault
+
+## Version 0.0.7
+- [x] Update Consul and Vault
